@@ -152,10 +152,14 @@ module.exports = function (packageFile, opt) {
 
 		var streamEnd = function (cb){
 			gutil.log('Processed ' + streamCount + ' files');
-			gutil.log(
-				'In which ' + failedCount +
-				' files failed to upload or already existed'
-			);
+			
+			if (failedCount > 0) {
+				throw new PluginError(
+						'In which ' + failedCount +
+						' files failed to upload or already existed'
+					);
+			}
+			
 			return cb();
 		};
 
