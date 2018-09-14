@@ -30,6 +30,7 @@ var opt = {
   API_KEY: 'MY_LONG_AUTH_TOKEN',
   debug: true,
   versionPrefix: '' // Append before the version number in package.json
+  failOnError: true // Fail if Sentry upload fails to upload any file
 }
 
 // Pull the version from the package.json file.
