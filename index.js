@@ -162,12 +162,13 @@ module.exports = function(packageFile, opt) {
     var streamEnd = function(cb) {
       gutil.log("Processed " + streamCount + " files");
       var failedLog =
-        "In which " +
-        failedCount +
-        " files failed to upload or already existed";
+        failedCount + " files failed to upload or already existed";
 
       if (opt.failOnError && failedCount >= 0) {
-        throw new PluginError(failedLog);
+        throw new PluginError(
+          "gulp-sentry-release.release.streamEnd",
+          failedLog
+        );
       } else {
         gutil.log(failedLog);
       }
