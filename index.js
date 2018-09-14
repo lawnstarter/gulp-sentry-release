@@ -164,7 +164,7 @@ module.exports = function(packageFile, opt) {
       var failedLog =
         failedCount + " files failed to upload or already existed";
 
-      if (opt.failOnError && failedCount >= 0) {
+      if (opt.failOnError && failedCount > 0) {
         throw new PluginError(
           "gulp-sentry-release.release.streamEnd",
           failedLog
